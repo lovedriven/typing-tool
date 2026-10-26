@@ -5,7 +5,7 @@ function createWindow() {
   w.loadFile('index.html');
   // open email links (mailto:) in the computer's email program
   w.webContents.on('will-navigate', (e, url) => { if (url.startsWith('mailto:')) { e.preventDefault(); shell.openExternal(url); } });
-  w.webContents.setWindowOpenHandler(({ url }) => { if (url.startsWith('mailto:')) shell.openExternal(url); return { action: 'deny' }; });
+  w.webContents.setWindowOpenHandler(({ url }) => { if (/^(mailto:|https?:)/.test(url)) shell.openExternal(url); return { action: 'deny' }; });
 }
 app.whenReady().then(createWindow);
 app.on('window-all-closed', () => app.quit());

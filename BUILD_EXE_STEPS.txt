@@ -1,0 +1,26 @@
+HOW TO BUILD THE .EXE (do this ONCE, on a computer WITH internet)
+
+1. Install Node.js (LTS) from https://nodejs.org  (accept defaults).
+2. Copy this whole folder to the computer, e.g. C:\SLP_Exe_Project
+3. Open the folder, click the address bar, type  cmd  and press Enter.
+4. Run:   npm install        (downloads Electron - wait a few minutes)
+5. Test:  npm start          (the trainer opens as a normal app window)
+6. Build: npm run dist
+7. Open the new  dist  folder. You will find:
+     - "SLP Keyboard Trainer Setup 1.0.0.exe"  -> installer (adds Start menu + desktop icon)
+     - "SLP Keyboard Trainer 1.0.0.exe"        -> portable, runs from a USB with no install
+8. Copy the .exe to the training computers. They need NO internet.
+
+NOTES
+- Windows may show "Unknown publisher" (SmartScreen) because the app is not code-signed. Click More info > Run anyway.
+- Student accounts are stored inside the app on each computer. Use Export/Import to move them.
+- To update the app: replace index.html with the new version and run  npm run dist  again.
+
+ONLINE OPTION (no Node.js needed on your computer) - GitHub Actions
+1. Create a free account at github.com and make a new PRIVATE repository (e.g. slp-trainer).
+2. Click "Add file" > "Upload files" and drag in everything from this folder
+   (index.html, main.js, package.json, icon.ico). Then create the workflow:
+   "Add file" > "Create new file", name it  .github/workflows/build.yml
+   and paste the contents of the build.yml file from this folder. Commit.
+3. Open the "Actions" tab > "Build Windows EXE" > "Run workflow".
+4. Wait about 5 minutes. Open the finished run and download "SLP-Keyboard-Trainer-EXE" at the bottom (a zip with the .exe files).
