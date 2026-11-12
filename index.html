@@ -88,7 +88,7 @@ function issues(p,u){const e=[];if(p.length<8)e.push('8+ characters');if(!/[a-z]
 function meter(i){const p=i.value;let s=[p.length>=8,p.length>=12,/[a-z]/.test(p)&&/[A-Z]/.test(p),/\d/.test(p),/[^\w\s]/.test(p)].filter(Boolean).length;const b=$('#'+i.dataset.b);b.style.width=s*20+'%';b.style.background=s<3?'#e8553a':s<4?'#e9a23b':'#34a98f'}
 const msg=(t,ok)=>{const m=$('#m');if(m){m.textContent=t;m.className=ok?'ok':''}};
 const show=h=>{$('#app').innerHTML=h;scrollTo(0,0);eyes()};
-const head=`<div class="center"><img class="logo" src="${LOGO}" alt="LoveDriven Ministries"><h1>Street Leader Program (SLP) ICT</h1><p class="sub">Keyboard Trainer</p></div>`;
+const head=`<div class="center"><img class="logo" src="${LOGO}" alt="LoveDriven Ministries"><h1>Street Leader Program (SLP) ICT</h1><p class="sub">Keyboard Trainer</p><small style="color:#9be8d4;font-weight:700">Version 2.1 · online</small></div>`;
 const CAUT=`<div class="caution"><b>Password safety:</b> never share your password, not even with friends. Don't use your phone number, birthday or name. Log out on shared computers. If you forget it, only the admin can give you a reset code. Keep your backup file private.</div>`;
 function auth(t='in'){
  const tabs=`<div class="tabs"><button class="${t=='in'?'on':''}" onclick="auth('in')">Log in</button><button class="${t=='up'?'on':''}" onclick="auth('up')">Create account</button></div>`;
